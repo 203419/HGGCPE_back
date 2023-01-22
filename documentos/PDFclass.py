@@ -44,7 +44,7 @@ class PDF(FPDF):
         for line in text.splitlines():
             self.set_xy(20, y)
             self.write(6, line)
-            y += 7
+            y += 5
 
         self.y = y + 16
         self.reset_y()
