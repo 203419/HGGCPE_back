@@ -52,6 +52,8 @@ class DocAnalisisView(APIView):
                 pdf.add_image(base_dir2+data.get('arq3', None))
         except:
             print("None")
+
+        pdf.add_text("Componentes")
         pdf.add_image(base_dir2+data.get('comp1', None))
         try:
             if data.get('comp2', None) != "None":
