@@ -1,4 +1,3 @@
-import os, datetime, time
 import pandas as pd
 import matplotlib.pyplot as plt
 from fpdf import FPDF
@@ -71,7 +70,10 @@ class PDF(FPDF):
         
     def add_table(self, data):
         self.set_font("Arial", size=11)
-        col_width = self.get_string_width(data[1][1]) + 6
+        if self.get_string_width(data[1][1]) > self.get_string_width(data[2][1]):
+            col_width = self.get_string_width(data[1][1]) + 6
+        else:
+            col_width = self.get_string_width(data[2][1]) + 6
         row_height = 10
 
         x = (self.w - (col_width*len(data[0])))/2
